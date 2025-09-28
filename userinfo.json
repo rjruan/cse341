@@ -1,0 +1,24 @@
+[
+    {
+      "firstName": "Ruby",
+      "lastName": "Ruan",
+      "email": "rjruan2000@gmail.com",
+      "favoriteColor": "Black",
+      "birthday": "2000-08-07"
+    },
+    {
+      "firstName": "Elle",
+      "lastName": "Xue",
+      "email": "ellexue@gmail.com",
+      "favoriteColor": "Purple",
+      "birthday": "2000-08-10"
+    },
+    {
+      "firstName": "Benjamin",
+      "lastName": "Burt",
+      "email": "benjiburt@gmail.com",
+      "favoriteColor": "Blue",
+      "birthday": "2001-07-17"
+    }
+  ]
+  

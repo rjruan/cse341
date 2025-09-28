@@ -1,0 +1,22 @@
+### Test root route
+GET http://localhost:8080 HTTP/1.1
+
+###
+
+### Get all contacts (local)
+GET http://localhost:8080/contacts HTTP/1.1
+
+###
+
+### Get one contact by ID (local)
+GET http://localhost:8080/contacts/_id: {68d823e11276e2c705a7ad89} HTTP/1.1
+
+###
+
+### Get all contacts (Render deployment)
+GET https://cse341-f5tf.onrender.com/contacts HTTP/1.1
+
+###
+
+### Get one contact by ID (Render deployment)
+GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad89 HTTP/1.1
