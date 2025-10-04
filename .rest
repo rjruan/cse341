@@ -1,37 +1,95 @@
+### ===================== LOCAL SERVER =====================
+
 ### Get all contacts (local)
-GET http://localhost:8080/contacts HTTP/1.1
-
+GET http://localhost:8080/contacts
 ###
 
-### Get one contact by ID (local)
-GET http://localhost:8080/contacts/68d823e11276e2c705a7ad89 HTTP/1.1
-
+### Get one contact by ID (local) - Elle
+GET http://localhost:8080/contacts/68d823e11276e2c705a7ad8a
 ###
 
-### Get one contact by ID (local)
-GET http://localhost:8080/contacts/68d823e11276e2c705a7ad8a HTTP/1.1
-
+### Get one contact by ID (local) - Benji
+GET http://localhost:8080/contacts/68d823e11276e2c705a7ad8b
 ###
 
-### Get one contact by ID (local)
-GET http://localhost:8080/contacts/68d823e11276e2c705a7ad8b HTTP/1.1
-
+### Get one contact by ID (local) - Ruby
+GET http://localhost:8080/contacts/68d823e11276e2c705a7ad89
 ###
 
-### Get all contacts (Render deployment)
-GET https://cse341-f5tf.onrender.com/contacts HTTP/1.1
+### Create a new contact (local)
+POST http://localhost:8080/contacts
+Content-Type: application/json
 
+{
+  "firstName": "Ty",
+  "lastName": "Ruan",
+  "email": "tsyur@gmail.com",
+  "favoriteColor": "Orange",
+  "birthday": "1972-02-11"
+}
 ###
 
-### Get one contact by ID (Render deployment)
-GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad89 HTTP/1.1
+### Update a contact (local) - update Ruby
+PUT http://localhost:8080/contacts/68d823e11276e2c705a7ad89
+Content-Type: application/json
 
+{
+  "firstName": "Ruby",
+  "lastName": "Ruan",
+  "email": "rjruan@gmail.com",
+  "favoriteColor": "Black",
+  "birthday": "2000-08-07"
+}
 ###
 
-### Get one contact by ID (Render deployment)
-GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad8a HTTP/1.1
-
+### Delete a contact (local) - delete Benji
+DELETE http://localhost:8080/contacts/68d823e11276e2c705a7ad8b
 ###
 
-### Get one contact by ID (Render deployment)
-GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad8b HTTP/1.1
+### ===================== RENDER DEPLOYMENT =====================
+
+### Get all contacts (Render)
+GET https://cse341-f5tf.onrender.com/contacts
+###
+
+### Get one contact by ID (Render) - Elle
+GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad8a
+###
+
+### Get one contact by ID (Render) - Benji
+GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad8b
+###
+
+### Get one contact by ID (Render) - Ruby
+GET https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad89
+###
+
+### Create a new contact (Render)
+POST https://cse341-f5tf.onrender.com/contacts/
+Content-Type: application/json
+
+{
+  "firstName": "Ty",
+  "lastName": "Ruan",
+  "email": "tsyur@gmail.com",
+  "favoriteColor": "Orange",
+  "birthday": "1972-02-11"
+}
+###
+
+### Update a contact (Render) - update Ruby
+PUT https://cse341-f5tf.onrender.com/contacts/68d823e11276e2c705a7ad89
+Content-Type: application/json
+
+{
+  "firstName": "Ruby",
+  "lastName": "Ruan",
+  "email": "rjruan2000@gmail.com",
+  "favoriteColor": "Black",
+  "birthday": "2000-08-07"
+}
+###
+
+### Delete a contact (Render) - delete Benji
+DELETE https://cse341-f5tf.onrender.com/contacts/68e1abcf2856ed78d71e2a62
+###

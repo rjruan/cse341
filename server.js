@@ -1,3 +1,4 @@
+/* eslint-env node */
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -8,39 +9,31 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// routes
+// Import routes AFTER middleware
 const contactsRoute = require('./routes/contacts');
-app.use('/contacts', contactsRoute);
+const professionalRoute = require('./routes/professional');
 
-// root route
+// Mount routes
+app.use('/contacts', contactsRoute);
+app.use('/professional', professionalRoute);
+
+// Root route
 app.get('/', (req, res) => {
   res.send('Server is running!');
 });
 
-app.get('/professional', (req, res) => {
-  const data = {
-    title: "Hello, my name is Ruby Ruan.",
-    header: "Welcome to my portfolio.",
-    description: "I'm an awesome student at BYU-Idaho.",
-    links: [
-      { text: "My Portfolio", url: "https://rubyruan.framer.website/" },
-      { text: "LinkedIn", url: "https://www.linkedin.com/in/rubyyyy/" }
-    ],
-    image: "../IMG_6114 2.JPG"
-  };
-  res.json(data);
-});
-
-
+// Start server only after DB connection
 initDb((err) => {
   if (err) {
-    console.error('Failed to connect to MongoDB:', err);
+    console.error('Failed to connect to database:', err);
+    process.exit(1);
   } else {
     app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   }
 });
