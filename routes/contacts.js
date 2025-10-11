@@ -5,7 +5,15 @@ const { getDb } = require('../db/connect');
 
 const router = express.Router();
 
-// GET all contacts
+/**
+ * @swagger
+ * /contacts:
+ *   get:
+ *     summary: Get all contacts
+ *     responses:
+ *       200:
+ *         description: List of all contacts
+ */
 router.get('/', async (req, res) => {
   try {
     const db = getDb();
@@ -17,7 +25,23 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET a contact by ID
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   get:
+ *     summary: Get contact by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Contact found
+ *       404:
+ *         description: Contact not found
+ */
 router.get('/:id', async (req, res) => {
   try {
     const db = getDb();
@@ -37,7 +61,32 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST create a new contact
+/**
+ * @swagger
+ * /contacts:
+ *   post:
+ *     summary: Create a new contact
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               favoriteColor:
+ *                 type: string
+ *               birthday:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Contact created
+ */
 router.post('/', async (req, res) => {
   try {
     const db = getDb();
@@ -57,7 +106,27 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT update a contact by ID
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   put:
+ *     summary: Update an existing contact
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *     responses:
+ *       200:
+ *         description: Contact updated
+ */
 router.put('/:id', async (req, res) => {
   try {
     const db = getDb();
@@ -88,7 +157,21 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE a contact by ID
+/**
+ * @swagger
+ * /contacts/{id}:
+ *   delete:
+ *     summary: Delete a contact
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Contact deleted
+ */
 router.delete('/:id', async (req, res) => {
   try {
     const db = getDb();
