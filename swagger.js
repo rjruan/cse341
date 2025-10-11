@@ -13,7 +13,7 @@ const options = {
       { url: 'http://localhost:8080/', description: 'Local server' }
     ]
   },
-  apis: ['./routes/*.js'] // Path to files with Swagger comments
+  apis: ['./routes/*.js'] 
 };
 
 module.exports = swaggerJSDoc(options);

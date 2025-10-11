@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Use CORS middleware (with your Netlify site)
+// Use CORS middleware
 app.use(
   cors({
     origin: 'https://cse341-contacts-frontend.netlify.app', // frontend origin
